@@ -62,7 +62,8 @@ GENERATED_FILES := $(POSTINGS_HTML) \
                    $(foreach A,$(AUTHORS),html/$A/author) \
                    $(foreach A,$(AUTHORS),\
                      $(addprefix html/$A/,$(notdir $(wildcard content/$A/*.png)))) \
-                   $(addprefix html/,$(notdir $(wildcard style/*.png)))
+                   $(addprefix html/,$(notdir $(wildcard style/*.png))) \
+                   $(addprefix html/,$(notdir $(wildcard style/*.svg)))
 
 # generate author information snippets before any of the author's postings
 $(foreach A,$(AUTHORS),$(eval $(addprefix html/$A/,${POSTINGS($A)}) : html/$A/author))
@@ -183,6 +184,8 @@ html/%.css: style/%.css
 html/%.ico: style/%.ico
 	cp $< $@
 html/%.png: style/%.png
+	cp $< $@
+html/%.svg: style/%.svg
 	cp $< $@
 html/%.png: content/%.png
 	cp $< $@

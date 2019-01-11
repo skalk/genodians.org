@@ -60,10 +60,11 @@ proc produce_tail_html {} {
 	regexp {(.*)/} $link dummy username
 
 	printline {          <div class="discuss">}
-	printline "           <a href=\"https://www.$reddit_url/submit?url=https://genodians.org/$link&title=$title\">"
-	printline "            Discuss at $reddit_url"
+	printline {          Discuss at }
+	printline "           <a href=\"https://www.$reddit_url/submit?url=https://genodians.org/$link&title=$title\" title=\"reddit.com/r/genode\"> <img src=\"../reddit_logo.svg\" alt=\"reddit.com/r/genode\"/> </a>"
 	printline {           </a>}
-	printline {          </div>}
+	printline "           <a href=\"https://twitter.com/intent/tweet?text=https://genodians.org/$link\" title=\"Twitter\"> <img src=\"../twitter_logo.svg\" alt=\"Twitter\"/> </a>"
+	printline {          </div> <!-- discuss -->}
 	printline {        </div> <!-- posting -->}
 	printline {      </div> <!-- post -->}
 	printline [file_content style/external-links-menu]
